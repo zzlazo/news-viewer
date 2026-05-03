@@ -14,7 +14,7 @@ export default function ShellLayout({
 
   const handleSignOut = async () => {
     await signOut();
-    router.push('/');
+    router.push('/sign-in');
   };
 
   const tabs = [
