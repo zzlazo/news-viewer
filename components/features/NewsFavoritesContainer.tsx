@@ -9,7 +9,7 @@ import { db } from '@/lib/firebase';
 export default function NewsFavoritesContainer() {
   const repo = useMemo(() => new FirebaseNewsFavoriteRepository(db), []);
 
-  const { favorites, removeFavorite, isLoading } = useNewsFavorites(repo);
+  const { favorites, removeFavorite } = useNewsFavorites(repo);
 
   const handleToggleFavorite = useCallback(
     async (id: string) => {
@@ -21,7 +21,6 @@ export default function NewsFavoritesContainer() {
   return (
     <NewsFavoriteList
       items={favorites}
-      loading={isLoading}
       isFavorite={(_) => true}
       onToggleFavorite={handleToggleFavorite}
     />
